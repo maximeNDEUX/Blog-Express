@@ -4,15 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Blog Express</title>
-        <link rel="stylesheet" href="asset/style.css" />
+        <link rel="stylesheet" href="asset/css/reset.css" />
+        <link rel="stylesheet" href="asset/css/style.css" />
     </head>
     <body>
         <!-- Document Header / Site Header -->
         <header class="main-header">
-            <h1>My WebSite</h1>
-
-            <!-- include the menu component -->
-            <%- include('../components/menu.html') %>
+            <div class="main-header_content">
+                <h1 class="header-title">Blog Express</h1>
+                <!-- include the header-links component -->
+                <%- include('../components/header-links.html') %>
+            </div>
         </header>
 
         <!-- Document content / Main content -->
