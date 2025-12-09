@@ -1,0 +1,19 @@
+<%- include('../../layout/header.html') %>
+
+<div class="page-body">
+    <header class="page-title">
+        <h2><%= title %></h2>
+    </header>
+
+    <main>
+        <p class="page-description">
+            Retrouvez ici la liste des articles de ce blog
+        </p>
+        <section class="blog-list">
+            <% blogs.forEach(blog => { %> <%-
+            include('../../components/blog-item.html', { blog: blog }) %> <% })
+            %>
+        </section>
+    </main>
+</div>
+<%- include('../../layout/footer.html') %>
