@@ -113,14 +113,38 @@ body {
 }
 
 .blog-item h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     margin-bottom: 16px;
 }
 
 .blog-item p {
     line-height: 1.6;
+    margin-bottom: 12px;
+
 }
 
+.blog-item div {
+    display: flex;
+    justify-content: start;
+}
+
+.link {
+    margin-top: 8px;
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+}
+
+.link:hover {
+    color: rgb(58, 58, 58);
+    cursor: pointer;
+}
+
+.blog-content {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
 
 
 

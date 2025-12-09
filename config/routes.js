@@ -19,8 +19,8 @@ router.get("/blogs", BlogController.index);
 // // Route pour la page "Nouveaux blogs"
 // router.get("/blog/new", BlogController.create);
 
-// // Route pour afficher un blog d'id spécifié
-// router.get("/blog/:id", BlogController.show);
+// Route pour afficher un blog d'id spécifié
+router.get("/blog/:id", BlogController.show);
 
 // // TODO: Routes DELETE et EDIT
 

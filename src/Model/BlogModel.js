@@ -26,7 +26,7 @@ exports.findAll = () => {
 };
 
 /**
- * Exemple : récupérer un blog par son ID
+ * Récupérer un blog par son ID
  * @param {number} id
  * @returns {Promise<Object>} Article trouvé
  */
