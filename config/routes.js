@@ -5,13 +5,13 @@ const router = express.Router();
 // Import des contrôleurs
 // --
 
-// const HomepageController = require("../src/Controller/HomepageController");
+const HomepageController = require("../src/Controller/HomepageController");
 
 // Définition des routes
 // --
 
-// // Route pour la page d'accueil
-// router.get("/", HomepageController.index);
+// Route pour la page d'accueil
+router.get("/", HomepageController.index);
 
 // // Route pour la page "Liste des blogs"
 // router.get("/blogs", BlogController.index);
