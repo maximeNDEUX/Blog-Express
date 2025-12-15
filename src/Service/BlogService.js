@@ -1,17 +1,24 @@
 const BlogModel = require("../Model/BlogModel");
+const { NotFoundError, ValidationError } = require("../errors/ApiError");
 
 class BlogService {
-    constructor(model) {
-        this.model = model;
-    }
-
     async getAllBlogs() {
-        return this.model.findAll();
+        return BlogModel.findAll();
     }
 
     async getBlogById(id) {
-        return this.model.findById(id);
+        if (!id) {
+            throw new ValidationError("L'id est obligatoire");
+        }
+
+        const blog = await BlogModel.findById(id);
+
+        if (!blog) {
+            throw new NotFoundError(`Blog avec l'id ${id} introuvable`);
+        }
+
+        return blog;
     }
 }
 
-module.exports = new BlogService(BlogModel);
+module.exports = BlogService;

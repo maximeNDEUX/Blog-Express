@@ -1,27 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-// Controllers
-const BlogControllerClass = require("../src/Controller/BlogController");
-const HomeControllerClass = require("../src/Controller/HomeController");
+const BlogController = require("../src/Controller/BlogController");
+const BlogService = require("../src/Service/BlogService");
 
-// Wrapper pour gérer les erreurs async
-const asyncHandler = require("../src/utils/asyncHandler");
-
-// Crée des instances des controllers
-const blogController = new BlogControllerClass(
-    require("../src/Service/BlogService")
-);
-// const homeController = new HomeControllerClass();
+const blogController = new BlogController(new BlogService());
 
 // Routes
-// router.get("/", asyncHandler(homeController.index));
-router.get("/blogs", asyncHandler(blogController.index));
-router.get("/blog/:id", asyncHandler(blogController.show));
-
-// Middleware 404
-router.use((req, res) => {
-    res.status(404).render("errors/err_404");
-});
+router.get("/blogs", blogController.index);
+router.get("/blog/:id", blogController.show);
 
 module.exports = router;
