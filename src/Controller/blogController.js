@@ -1,32 +1,28 @@
-const BlogModel = require("../Model/BlogModel");
+const BlogService = require("../Service/BlogService");
 
 /**
- * Affiche la liste des blogs
- *
- * @param {*} req
- * @param {*} res
+ * Liste des blogs
  */
 exports.index = async (req, res) => {
-    let blogs = await BlogModel.findAll();
+    const blogs = await BlogService.getAllBlogs();
 
     res.render("pages/blog/index", {
-        title: `Accueil`,
-        message: `Bienvenue sur la page d'accueil !`,
-        blogs: blogs,
+        title: "Blogs",
+        blogs,
     });
 };
 
 /**
- * Lire un blog spécifique
- *
- * @param {*} req
- * @param {*} res
+ * Affichage d’un blog
  */
 exports.show = async (req, res) => {
-    const blogId = req.params.id;
-    const blog = await BlogModel.findById(blogId);
+    const blog = await BlogService.getBlogById(req.params.id);
+
+    if (!blog) {
+        return res.status(404).render("errors/err_404");
+    }
 
     res.render("pages/blog/show", {
-        blog: blog,
+        blog,
     });
 };
