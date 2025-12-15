@@ -1,29 +1,17 @@
 const BlogModel = require("../Model/BlogModel");
 
-/**
- * Récupérer tous les blogs
- */
-exports.getAllBlogs = async () => {
-    const blogs = await BlogModel.findAll();
-
-    // Exemple de logique métier possible
-    return blogs;
-};
-
-/**
- * Récupérer un blog par ID
- */
-exports.getBlogById = async (id) => {
-    // Règle métier minimale
-    if (!id || isNaN(id)) {
-        return null;
+class BlogService {
+    constructor(model) {
+        this.model = model;
     }
 
-    const blog = await BlogModel.findById(id);
-
-    if (!blog) {
-        return null;
+    async getAllBlogs() {
+        return this.model.findAll();
     }
 
-    return blog;
-};
+    async getBlogById(id) {
+        return this.model.findById(id);
+    }
+}
+
+module.exports = new BlogService(BlogModel);
