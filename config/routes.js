@@ -6,22 +6,22 @@ const router = express.Router();
 // --
 
 const BlogController = require("../src/Controller/BlogController");
+const HomeController = require("../src/Controller/HomeController");
 
 // Définition des routes
 // --
 
 // Route pour la page d'accueil
+router.get("/", HomeController.index);
+
+// Route pour la page "Liste des blogs"
 router.get("/blogs", BlogController.index);
-
-// // Route pour la page "Liste des blogs"
-// router.get("/blogs", BlogController.index);
-
-// // Route pour la page "Nouveaux blogs"
-// router.get("/blog/new", BlogController.create);
 
 // Route pour afficher un blog d'id spécifié
 router.get("/blog/:id", BlogController.show);
 
+// // Route pour la page "Nouveaux blogs"
+// router.get("/blog/new", BlogController.create);
 // // TODO: Routes DELETE et EDIT
 
 // Routes pour les blogs
